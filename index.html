@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerbang Pembayaran - Dori Samsul Hudori</title>
+    
+    <style>
+        /* Styling Dasar */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            /* Latar Belakang Gabungan Biru dan Merah */
+            background: linear-gradient(45deg, #1e90ff, #ff4500); /* Biru Cerah ke Merah Jingga */
+            background-size: 400% 400%;
+            animation: background-animate 15s ease infinite;
+        }
+
+        /* Animasi untuk latar belakang gradien */
+        @keyframes background-animate {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95); /* Sedikit Transparan agar background terlihat */
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #eee;
+        }
+
+        header h1 {
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        /* Bagian QRIS */
+        .qris-section {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .qris-box {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .qris-image {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            border: 5px solid #fff;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #ff4500;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #e63900;
+        }
+
+        /* Kartu Pembayaran (Bank & E-Wallet) */
+        .bank-transfer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .payment-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-card h3 {
+            margin-top: 0;
+            color: #1e90ff; /* Biru */
+        }
+
+        .payment-card.dana h3 {
+            color: #1AB759; /* Hijau Dana */
+        }
+
+        .payment-card.gopay h3 {
+            color: #00AA13; /* Hijau GoPay */
+        }
+
+        .payment-card.seabank h3 {
+            color: #8C2CFB; /* Ungu SeaBank */
+        }
+
+
+        .account-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff4500; /* Merah */
+            margin: 5px 0;
+        }
+
+        .account-name {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .copy-btn {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .copy-btn:hover {
+            background-color: #007bff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.85em;
+        }
+
+        /* Responsif Sederhana */
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .qris-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Gerbang Pembayaran</h1>
+            <p>Silakan pilih metode pembayaran di bawah ini.</p>
+        </header>
+
+        <section class="qris-section">
+            <h2>Scan QRIS Universal</h2>
+            <div class="qris-box">
+                <img src="https://sharp-copper-vt5uwnpjtx-m8zz843qcw.edgeone.dev/644003106_zion.jpg" alt="QRIS Payment" class="qris-image">
+                <p><strong>N/A: DORI SAMSUL HUDORI</strong></p>
+                <a href="https://sharp-copper-vt5uwnpjtx-m8zz843qcw.edgeone.dev/644003106_zion.jpg" target="_blank" class="button">Lihat QRIS Resolusi Penuh</a>
+            </div>
+        </section>
+
+        <section class="bank-transfer">
+            <h2>Transfer Bank & E-Wallet</h2>
+
+            <div class="payment-card">
+                <h3>🏦 BSI (Bank Syariah Indonesia)</h3>
+                <p class="account-number">7331392329</p>
+                <p class="account-name">A/N: DORI SAMSUL HUDORI</p>
+                <button class="copy-btn" data-account="7331392329">Salin Nomor</button>
+            </div>
+
+            <div class="payment-card dana">
+                <h3>📱 DANA</h3>
+                <p class="account-number">083897762065</p>
+                <p class="account-name">A/N: DORI SAMSUL HUDORI</p>
+                <button class="copy-btn" data-account="083897762065">Salin Nomor</button>
+            </div>
+
+            <div class="payment-card gopay">
+                <h3>📱 GOPAY</h3>
+                <p class="account-number">082128399932</p>
+                <p class="account-name">A/N: DORI SAMSUL HUDORI</p>
+                <button class="copy-btn" data-account="082128399932">Salin Nomor</button>
+            </div>
+
+            <div class="payment-card seabank">
+                <h3>🏦 SEABANK</h3>
+                <p class="account-number">901068812599</p>
+                <p class="account-name">A/N: DORI SAMSUL HUDORI</p>
+                <button class="copy-btn" data-account="901068812599">Salin Nomor</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Gerbang Pembayaran Sederhana. Terima kasih.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const accountNumber = this.getAttribute('data-account');
+                
+                // Cek apakah browser mendukung Clipboard API
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(accountNumber)
+                        .then(() => {
+                            this.textContent = 'Berhasil Disalin!';
+                            setTimeout(() => {
+                                this.textContent = 'Salin Nomor';
+                            }, 2000);
+                        })
+                        .catch(err => {
+                            console.error('Gagal menyalin: ', err);
+                            alert('Gagal menyalin. Silakan salin manual: ' + accountNumber);
+                            this.textContent = 'Gagal Salin!';
+                        });
+                } else {
+                    // Fallback untuk browser lama
+                    alert('Browser Anda tidak mendukung fungsi salin otomatis. Silakan salin manual: ' + accountNumber);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
